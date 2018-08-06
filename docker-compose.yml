@@ -1,0 +1,8 @@
+version: '2'
+services:
+  mjml2html:
+    build: .
+    environment:
+      - PORT=3001
+    ports:
+      - 3001:3001

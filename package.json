@@ -1,0 +1,17 @@
+{
+  "name": "mjml2html",
+  "version": "1.0.0",
+  "description": "Transform the MJML content to HTML",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "William DA SILVA <william.da.silva@chronotruck.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mjml": "^4.1.1"
+  }
+}

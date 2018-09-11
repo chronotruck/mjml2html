@@ -32,6 +32,40 @@ describe('Convert MJML to HTML', () => {
     })
   })
 
+  it('should not get an error if invalid mjml with a different validation', (done) => {
+    request.post(`${ENDPOINT}?validation=skip`, {
+      body: `<mjml>
+        <mj-body>
+          <mj-wrapper>
+            <mj-wrapper>
+              <mj-section>
+                <mj-column>
+                  <mj-text>
+                    Hello world!
+                  </mj-text>
+                </mj-column>
+                <mj-column>
+                  <mj-text>
+                    Something else.
+                  </mj-text>
+                </mj-column>
+              </mj-section>
+            </mj-wrapper>
+          </mj-wrapper>
+        </mj-body>
+      </mjml>`,
+      headers: {
+        'Content-Type': 'text/plain'
+      }
+    }, (err, response) => {
+      expect(response.statusCode).toEqual(200)
+      expect(response.headers['content-type']).toContain('text/html')
+      expect(response.body).toBeDefined()
+      expect(response.body).toContain('Hello world!')
+      done()
+    })
+  })
+
   it('should get an error if no content provided', (done) => {
     request.post(ENDPOINT, {
       body: '',

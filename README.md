@@ -56,11 +56,12 @@ May return:
 To use the API params, you can pass them as query parameters
 `localhost:3001/?comments=false&minfiy=true`.
 
-| Param      | Type       | Default    |
-|------------|------------|------------|
+| Param      | Type       | Default    | Possible values |
+|------------|------------|------------|------------
 | comments    | Boolean | false |
 | minify    | Boolean | false |
 | beautify    | Boolean | false |
+| validation    | String | strict | skip, soft, strict
 
 ## License
 

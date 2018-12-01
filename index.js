@@ -42,7 +42,7 @@ app.post('/', (req, res) => {
         minify,
         validationLevel
       })
-      
+
       res
         .type('html')
         .status(200)

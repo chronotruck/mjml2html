@@ -43,3 +43,10 @@ jobs:
       - run:
         name: Audit for vulnerabilities
         command: npm audit --audit-level=moderate
+
+workflows:
+  version: 2
+  mjml2html:
+    jobs:
+      - misc
+      - build

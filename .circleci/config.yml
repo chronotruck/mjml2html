@@ -11,17 +11,8 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
 
-      - run: npm install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm ci
 
       # Run the API server
       - run:
@@ -37,3 +28,18 @@ jobs:
 
       # Run the tests
       - run: npm test
+  
+  misc:
+    docker:
+      - image: circleci/node:10
+
+    working_directory: ~/mjml2html
+
+    steps:
+      - checkout
+
+      - run: npm ci
+
+      - run:
+        name: Audit for vulnerabilities
+        command: npm audit --audit-level=moderate

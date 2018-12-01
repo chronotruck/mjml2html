@@ -11,29 +11,46 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
 
-      - run: npm install
+      - run:
+          name: Install dependencies
+          command: npm ci
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      # Run the API server
       - run:
           name: Running API server
           command: npm start
           background: true
 
-      # Wait for the server to start responding.
       - run:
+          name: Wait for the API server
           command: |
             dockerize -wait tcp://127.0.0.1:3001 -timeout 1m
             curl http://0.0.0.0:3001
 
-      # Run the tests
-      - run: npm test
+      - run:
+          name: Run tests
+          command: npm test
+  
+  misc:
+    docker:
+      - image: circleci/node:10
+
+    working_directory: ~/mjml2html
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: npm ci
+
+      - run:
+          name: Audit for vulnerabilities
+          command: npm audit
+
+workflows:
+  version: 2
+  mjml2html:
+    jobs:
+      - misc
+      - build

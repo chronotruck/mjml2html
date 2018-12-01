@@ -46,7 +46,7 @@ jobs:
 
       - run:
           name: Audit for vulnerabilities
-          command: npm audit --audit-level=moderate
+          command: npm audit
 
 workflows:
   version: 2

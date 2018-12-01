@@ -48,6 +48,10 @@ jobs:
           name: Audit for vulnerabilities
           command: npm audit
 
+      - run:
+          name: Lint files
+          command: npm run lint
+
 workflows:
   version: 2
   mjml2html:

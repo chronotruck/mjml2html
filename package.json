@@ -6,7 +6,7 @@
   "repository": "github:chronotruck/mjml2html",
   "scripts": {
     "start": "node index.js",
-    "test": "jest test --config",
+    "test": "jest test",
     "test:watch": "jest --watchAll"
   },
   "author": "William DA SILVA <william.da.silva@chronotruck.com>",

@@ -13,6 +13,7 @@ describe('Convert MJML to HTML', () => {
       expect(response.statusCode).toEqual(200)
       expect(response.headers['content-type']).toContain('text/html')
       expect(response.body).toContain('Hello world!')
+      expect(err).toBeNull()
       done()
     })
   })
@@ -28,6 +29,8 @@ describe('Convert MJML to HTML', () => {
       expect(response.headers['content-type']).toContain('application/json')
       expect(response.body).toBeDefined()
       expect(JSON.parse(response.body).error).toEqual('Only text/plain content-type is authorized.')
+
+      expect(err).toBeNull()
       done()
     })
   })
@@ -62,6 +65,8 @@ describe('Convert MJML to HTML', () => {
       expect(response.headers['content-type']).toContain('text/html')
       expect(response.body).toBeDefined()
       expect(response.body).toContain('Hello world!')
+
+      expect(err).toBeNull()
       done()
     })
   })
@@ -77,6 +82,8 @@ describe('Convert MJML to HTML', () => {
       expect(response.headers['content-type']).toContain('application/json')
       expect(response.body).toBeDefined()
       expect(JSON.parse(response.body).error).toEqual('Missing content on the body request.')
+
+      expect(err).toBeNull()
       done()
     })
   })
@@ -92,6 +99,8 @@ describe('Convert MJML to HTML', () => {
       expect(response.headers['content-type']).toContain('application/json')
       expect(response.body).toBeDefined()
       expect(JSON.parse(response.body).error).toEqual('Parsing failed. Check your mjml.')
+
+      expect(err).toBeNull()
       done()
     })
   })

@@ -1,0 +1,39 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11.0
+
+    working_directory: ~/mjml2html
+
+    environment:
+      PORT: 3001
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # Run the API server
+      - run:
+          name: Running API server
+          command: npm start
+          background: true
+
+      # Wait for the server to start responding.
+      - run:
+          command: |
+            dockerize -wait tcp://127.0.0.1:3001 -timeout 1m
+            curl http://0.0.0.0:3001
+
+      # Run the tests
+      - run: npm test

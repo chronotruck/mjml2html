@@ -1,6 +1,12 @@
 # MJML2HTML
 
-Simple API to convert MJML content to HTML on the fly.
+![CircleCI](https://img.shields.io/circleci/project/github/chronotruck/mjml2html/master.svg)
+![Dependencies](https://img.shields.io/david/chronotruck/mjml2html.svg)
+![Dev Dependencies](https://img.shields.io/david/dev/chronotruck/mjml2html.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/chronotruck/mjml2html.svg)
+[![License](https://img.shields.io/github/license/chronotruck/mjml2html.svg)](https://github.com/chronotruck/mjml2html/blob/master/LICENSE)
+
+> Simple API to convert MJML content to HTML on the fly.
 
 ## Requirements
 

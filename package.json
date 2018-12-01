@@ -1,13 +1,14 @@
 {
   "name": "mjml2html",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Transform the MJML content to HTML",
   "main": "index.js",
   "repository": "github:chronotruck/mjml2html",
   "scripts": {
     "start": "node index.js",
-    "test": "jest test --config",
-    "test:watch": "jest --watchAll"
+    "test": "jest test",
+    "test:watch": "jest --watchAll",
+    "lint": "eslint index.js test"
   },
   "author": "William DA SILVA <william.da.silva@chronotruck.com>",
   "license": "MIT",
@@ -20,6 +21,13 @@
     "mjml": "^4.1.1"
   },
   "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "jest": "^23.4.2",
     "request": "^2.87.0"
   }

@@ -12,22 +12,24 @@ jobs:
     steps:
       - checkout
 
-      - run: npm ci
+      - run:
+          name: Install dependencies
+          command: npm ci
 
-      # Run the API server
       - run:
           name: Running API server
           command: npm start
           background: true
 
-      # Wait for the server to start responding.
       - run:
+          name: Wait for the API server
           command: |
             dockerize -wait tcp://127.0.0.1:3001 -timeout 1m
             curl http://0.0.0.0:3001
 
-      # Run the tests
-      - run: npm test
+      - run:
+          name: Run tests
+          command: npm test
   
   misc:
     docker:
@@ -38,7 +40,9 @@ jobs:
     steps:
       - checkout
 
-      - run: npm ci
+      - run:
+          name: Install dependencies
+          command: npm ci
 
       - run:
           name: Audit for vulnerabilities

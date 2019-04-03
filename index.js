@@ -11,7 +11,8 @@ const app = express()
  * the mj-wrapper element CAN have another mj-wrapper as a child component.
  */
 registerDependencies({
-  'mj-wrapper': ['mj-wrapper', 'mj-hero', 'mj-raw', 'mj-section']
+  'mj-wrapper': ['mj-wrapper', 'mj-hero', 'mj-raw', 'mj-section'],
+  'mj-body': ['mj-raw', 'mj-section', 'mj-wrapper', 'mj-hero', 'mj-text']
 })
 
 app.use(bodyParser.text())

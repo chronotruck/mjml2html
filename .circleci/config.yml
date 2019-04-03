@@ -46,7 +46,7 @@ jobs:
 
       - run:
           name: Audit for vulnerabilities
-          command: npm audit
+          command: npm audit --audit-level=moderate
 
       - run:
           name: Lint files

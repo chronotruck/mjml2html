@@ -2,6 +2,8 @@ version: '2'
 services:
   mjml2html:
     build: .
+    volumes:
+      - ./:/app
     environment:
       - PORT=3001
     ports:

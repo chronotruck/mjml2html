@@ -16,8 +16,8 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.17.1",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "mjml": "^4.6.3"
   },
   "devDependencies": {

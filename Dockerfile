@@ -1,5 +1,5 @@
 # Base
-FROM node:lts-alpine as base
+FROM node:24-alpine AS base
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY package-lock.json .
 RUN npm ci --only=production
 
 # Release
-FROM node:lts-alpine as release
+FROM node:24-alpine AS release
 
 COPY --from=base /app/node_modules ./node_modules
 

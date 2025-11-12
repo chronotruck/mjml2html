@@ -10,7 +10,7 @@ COPY package-lock.json .
 RUN npm ci --only=production
 
 # Release
-FROM node:24-alpine as release
+FROM node:24-alpine AS release
 
 COPY --from=base /app/node_modules ./node_modules
 

@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:24
+      - image: cimg/node:24.11
 
     working_directory: ~/mjml2html
 
@@ -33,7 +33,7 @@ jobs:
   
   misc:
     docker:
-      - image: circleci/node:24
+      - image: cimg/node:24.11
 
     working_directory: ~/mjml2html
 
